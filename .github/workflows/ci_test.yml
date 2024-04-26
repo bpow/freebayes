@@ -26,6 +26,10 @@ jobs:
       run: ninja -C build/
     - name: Run tests
       run: meson test --timeout-multiplier 4 --print-errorlogs -C build/
+    - name: Build static executable
+      run: meson build -Dstatic=true -Dprefer_system_deps=false --buildtype release
+    - name: ls
+      run: ls -laR
 
 
   build-aarch64:
